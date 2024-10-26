@@ -7,13 +7,14 @@ import { CarteleraCineApiService } from '../service/cartelera-cine-api.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  pelicula = [];
+  arrayPeliculas: any;
   constructor( private CarteleraCine: CarteleraCineApiService) {}
 
   ngOnInit(): void {
     this.CarteleraCine.obtenerCarteleraCine().subscribe({
       next:(Response)=> {
         console.log(Response)
+        this.arrayPeliculas = Response;
       },
       error:(err)=> {
         console.log(err)

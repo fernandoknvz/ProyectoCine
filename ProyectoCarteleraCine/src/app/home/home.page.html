@@ -1,20 +1,33 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>Cartelera de Peliculas</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content class="ion-padding">
+  LISTA DE LAS MEJORES PELICULAS DEL LA HISTORIA
+  <h2>Compralas ya!!</h2>
+  <br>
+  @for (p of arrayPeliculas; track p.id) {
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{p.title}}</ion-card-title>
+        <ion-card-subtitle>{{p.category}}</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        {{p.overview}}
+      </ion-card-content>
+    </ion-card>
+  } @empty {
+    <li> There are no items.</li>
+  }
 </ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Todos los Derechos Reservados 2024</ion-title>
+  </ion-toolbar>
+</ion-footer>
